@@ -1,118 +1,40 @@
+<?php
+session_start();
 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $id = $_POST['id'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $dob = $_POST['dob'];
+    $gender = $_POST['gender'];
+    $department = $_POST['department'];
+    $address = $_POST['address'];
 
-<html lang="en">
-<head>
-    <title>HTML Form</title>
-</head>
-<body>
-        <h1>HTML FROM EXAMPLE</h1>
+    if (!isset($_SESSION['users'])) {
+        $_SESSION['users'] = [];
+    }
 
-        <h1>HTML FROM EXAMPLE</h1>
+    $user_data = [
+        'name' => $name,
+        'id' => $id,
+        'email' => $email,
+        'password' => $password,
+        'dob' => $dob,
+        'gender' => $gender,
+        'department' => $department,
+        'address' => $address
+    ];
 
-        <form method="post" action="regcheck.php">
-            <fieldset >
-                <legend>Signup</legend>
-                <table>
-                    <tr>
-                        <td>Name:</td>
-                        <td><input type="text" name="" value="" placeholder="type your name" required/></td>
-                    </tr>
-                    <tr>
-                        <td>ID:</td>
-                        <td><input type="number"  name="" value="" required/></td>
-                    </tr>
-                    <tr>
-                        <td>Email: </td>
-                        <td><input type="email" name="" value="" required/></td>
-                    </tr>
-                    <tr>
-                        <td>password:</td>
-                        <td><input type="password" name="" value="" required/></td>
-                    </tr>
-                    <tr>
-                        <td>DOB:</td>
-                        <td><input type="date" name="" value="" required/></td>
-                    </tr>
-                    <tr>
-                        <td>Gender:</td>
-                        <td>
-                            <input type="radio" name="abc"  value=""> Male  
-                            <input type="radio" name="abc"  value=""> female  
-                            <input type="radio" name="abc"  value=""> Other
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>Dept:</td>
-                        <td>
-                            <select name="">
-                                <option value="">CSE</option>
-                                <option value="">CS</option>
-                                <option value="">SE</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Address: </td>
-                        <td><textarea></textarea> </td>
-                    </tr>
-                    <tr>
-                        <td>Image:</td>
-                        <td><input type="file" name="" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="submit" name="" value="Submit"  />
-                            <input type="reset" name="" value="Reset"  />
-                        </td>
-                    </tr>
-                </table>
-        </fieldset>     
-        </form> 
+    $_SESSION['users'][$name] = $user_data;
 
-        <?php
+    $_SESSION['user'] = $user_data;
 
-            
-            //Gender
-            if(isset($_POST['submit']))
-            {
-                header('location: Home.html')
-            }
-            else
-            {
-                echo "Error";
-                // header('location: name.html');
-            }
+    $_SESSION['status'] = true;
 
-            //Dept
-            if(isset($_POST['submit'])){
-                if(isset($_POST['dept']))
-                    {
-                        $blood = $_POST['blood_group'];
-                        if ($blood != null)
-                            {
-                                echo "Successful. You chose: ".$blood;
-                            }
-                        else
-                            {
-                                echo "Choose an option first";
-                            }
-                    }
-                else
-                    {
-                        echo "Nothing was chosen";
-                    }
-                }
-            else{
-                echo "invalid request!";
-            }
-
-
-        ?>
-
-
-</body>
-</html>
-
-
+    header('Location: home.php');
+    exit();
+} else {
+    echo "Invalid Request!";
+}
+?>

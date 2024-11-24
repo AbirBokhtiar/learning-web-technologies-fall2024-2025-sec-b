@@ -3,25 +3,21 @@
         <title>Login</title>
     </head>
     <body>
-        <form method="post" action="logincheck.php" enctype=""> 
+        <form method="post" action="logincheck.php"> 
             <table>
                 <tr>
-                    <td> Name <input type="text" name="username" value="" required/><br/></td>
+                    <td>Username: <input type="text" name="username" required/></td>
+                </tr>
+                <tr>
+                    <td>Password: <input type="password" name="password" required/></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="submit" value="Login" /></td>
                 </tr>
             </table>
-            <hr>
             <table>
-                <tr>
-                    <td> Password <input type="text" name="password" value="" required/><br/></td>
-                </tr>
-            </table>
-            <hr>
-            <table>
-                <tr>
-                    <td><input type="submit" name="submit" value="Submit" /></td>
-                </tr>
+                <td><a href="Reg.html" name="reg">register here</a></td>
             </table>
         </form>
-		
     </body>
 </html>

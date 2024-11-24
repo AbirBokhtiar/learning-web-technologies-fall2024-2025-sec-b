@@ -1,62 +1,24 @@
 <?php
+session_start();
 
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		$username = trim($_POST['username']);
-	 
-		if ($username == "") {
-			echo "Name cannot be empty.";
-		}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
 
-		$firstChar = $username[0];
-		if (!(($firstChar >= 'A' && $firstChar <= 'Z') || ($firstChar >= 'a' && $firstChar <= 'z'))) 
-		{
-			echo "Name must start with a letter.";
-			return;
-		}
-		$isValid = true;
-		for ($i = 0; $i < strlen($username); $i++) {
-			$char = $username[$i];
-			if (!(($char >= 'A' && $char <= 'Z') || ($char >= 'a' && $char <= 'z') || $char == ' ' || $char == '.' || $char == '-'))
-			{
-				$isValid = false;
-			}
-		}		
+    if (isset($_SESSION['users']) && isset($_SESSION['users'][$username])) {
+        $user = $_SESSION['users'][$username];
 
-		$words = explode(" ", $username);
-		$cnt = 0;
-		foreach ($words as $w) {
-			if ($w != "") {
-				$cnt++;
-			}
-		}
-		if (!$isValid)
-		{
-			echo "Name can only contain a-z, A-Z, period, dash.";
-		}
-		
-		else if($isValid){
-			if ($cnt < 2) 
-			{
-				echo "Name must contain at least two words.";
-				return;
-			}
-			else echo "Username is: ". $username. "<br>";
-		}
+        if ($user['password'] === $password) {
+            $_SESSION['status'] = true;
+            $_SESSION['user'] = $user;
 
-	}
-
-    // if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	// 	$pass = trim($_POST['password']);
-    //     $cnt = 0;
-	// 	foreach ($pass as $c) {
-	// 		if ($c != "") {
-	// 			$cnt++;
-	// 		}
-	// 	}
-    //     if(cnt < 8)
-    //     {
-    //         echo "Password must be greater than 8 characters";
-    //     }
-
-    // }
+            header('Location: home.php');
+            exit();
+        } else {
+            echo "Invalid login credentials (incorrect password).";
+        }
+    } else {
+        echo "Invalid login credentials (username not found).";
+    }
+}
 ?>
