@@ -45,18 +45,18 @@
 
 	}
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		$pass = trim($_POST['password']);
-        $cnt = 0;
-		foreach ($pass as $c) {
-			if ($c != "") {
-				$cnt++;
-			}
-		}
-        if(cnt < 8)
-        {
-            echo "Password must be greater than 8 characters";
-        }
+    // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	// 	$pass = trim($_POST['password']);
+    //     $cnt = 0;
+	// 	foreach ($pass as $c) {
+	// 		if ($c != "") {
+	// 			$cnt++;
+	// 		}
+	// 	}
+    //     if(cnt < 8)
+    //     {
+    //         echo "Password must be greater than 8 characters";
+    //     }
 
-    }
+    // }
 ?>

@@ -7,29 +7,31 @@
 <body>
         <h1>HTML FROM EXAMPLE</h1>
 
-        <form action="test.html">
+        <h1>HTML FROM EXAMPLE</h1>
+
+        <form method="post" action="regcheck.php">
             <fieldset >
                 <legend>Signup</legend>
                 <table>
                     <tr>
                         <td>Name:</td>
-                        <td><input type="text" name="" value="" placeholder="type your name" /></td>
+                        <td><input type="text" name="" value="" placeholder="type your name" required/></td>
                     </tr>
                     <tr>
                         <td>ID:</td>
-                        <td><input type="number"  name="" value="" /></td>
+                        <td><input type="number"  name="" value="" required/></td>
                     </tr>
                     <tr>
                         <td>Email: </td>
-                        <td><input type="email" name="" value="" /></td>
+                        <td><input type="email" name="" value="" required/></td>
                     </tr>
                     <tr>
                         <td>password:</td>
-                        <td><input type="password" name="" value="" /></td>
+                        <td><input type="password" name="" value="" required/></td>
                     </tr>
                     <tr>
                         <td>DOB:</td>
-                        <td><input type="date" name="" value="" /></td>
+                        <td><input type="date" name="" value="" required/></td>
                     </tr>
                     <tr>
                         <td>Gender:</td>
@@ -67,106 +69,15 @@
                     </tr>
                 </table>
         </fieldset>     
-        </form>
+        </form> 
 
         <?php
 
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $username = trim($_POST['username']);
             
-                if ($username == "") {
-                    echo "Name cannot be empty.";
-                }
-
-                $firstChar = $username[0];
-                if (!(($firstChar >= 'A' && $firstChar <= 'Z') || ($firstChar >= 'a' && $firstChar <= 'z'))) 
-                {
-                    echo "Name must start with a letter.";
-                    return;
-                }
-                $isValid = true;
-                for ($i = 0; $i < strlen($username); $i++) {
-                    $char = $username[$i];
-                    if (!(($char >= 'A' && $char <= 'Z') || ($char >= 'a' && $char <= 'z') || $char == ' ' || $char == '.' || $char == '-'))
-                    {
-                        $isValid = false;
-                    }
-                }		
-
-                $words = explode(" ", $username);
-                $cnt = 0;
-                foreach ($words as $w) {
-                    if ($w != "") {
-                        $cnt++;
-                    }
-                }
-                if (!$isValid)
-                {
-                    echo "Name can only contain a-z, A-Z, period, dash.";
-                }
-                
-                else if($isValid){
-                    if ($cnt < 2) 
-                    {
-                        echo "Name must contain at least two words.";
-                        return;
-                    }
-                    else echo "Username is: ". $username. "<br>";
-                }
-
-            }
-
-            //Email
-            if(isset($_POST['submit'])){
-                $email = trim($_POST['email']);
-
-                if($email == null){
-                    echo "Empty email address";
-                }
-                else{
-                    echo "Email is: ". $email;
-                }    
-            }
-
-            //DOB
-            if(isset($_POST['submit']))
-            {
-                $day = trim($_POST['dd']);
-                $month = trim($_POST['mm']);
-                $year = trim($_POST['yy']);
-
-                if (empty($day) || empty($month) || empty($year)) {
-                    print("Date cannot be empty");
-                }
-                
-                else {
-                    // $date_parts = explode('/', $date);
-                    // if (count($date_parts) == 3) {
-                    $dd = intval($day);
-                    $mm = intval($month);
-                    $yy = intval($year);
-                    // if (!checkdate($month, $day, $year)) {
-                    //     print("Invalid");
-                    if ($dd < 1 || $dd > 31) {
-                        print("Day must be between 1 and 31");
-                    } else if ($mm < 1 || $mm > 12) {
-                        print("Month must be between 1 and 12");
-                    } else if ($yy < 1953 || $yy > 1998) {
-                        print("Year must be between 1953 and 1998");
-                    } else {
-                        print("Your Date of Birth is: ". $dd. "/ ". $mm. "/ ". $yy);
-                    }
-                }
-            }
-
             //Gender
             if(isset($_POST['submit']))
             {
-                if(!(isset($_POST['gender'])) && empty($_POST['gender']))
-                {
-                    echo "At least one of them must be selected";
-                }
-                else echo "selected";
+                header('location: Home.html')
             }
             else
             {
