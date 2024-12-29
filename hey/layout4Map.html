@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>layout4</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .navbar {
+            background-color: #f7fafc;
+        }
+
+        .hh {
+            background-color: #227c78;
+            color: white;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        
+        .navbarr {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+        
+        .items-left {
+            align-items: left;
+        }
+
+        .items-right {
+            align-items: right;
+        }
+        
+        .ml-2 {
+            margin-left: 0.5rem;
+        }
+
+        .ml-4 {
+            margin-left: 0.5rem;
+        }
+
+
+        .ml-6 {
+            margin-left: 1.5rem;
+        }
+
+        .gridcard {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 0.375rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .shadow {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-gray-600 {
+            color: #718096;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .rounded {
+            border-radius: 0.375rem;
+        }
+
+        .p-6 {
+            padding: 1.5rem;
+        }
+
+        .w-1\/4 {
+            width: 25%;
+        }
+
+        .w-3\/4 {
+            width: 75%;
+        }
+
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .py-8 {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .pr-8 {
+            padding-right: 2rem;
+        }
+
+        .p-4 {
+            padding: 1rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .gap-6 {
+            gap: 1.5rem;
+        }
+
+        .justify-around {
+            justify-content: space-around;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="navbar">
+    <header class="hh">
+        <div class="container flex justify-between" style="margin-left: 2px;">
+            <div style="margin-left: 1rem;">
+                <img src="https://placehold.co/100x40" alt="company logo" class="inline-block">
+            </div>
+            <div class="flex items-center" style="margin-left: 700px; ">
+                <span class="ml-2">Company</span>
+                <span class="ml-4">Products and Solutions</span>
+                <span class="ml-6">Find a Station</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-white shadow py-4">
+        <div class="container">
+            <span class="text-gray-600 text-sm">Home » EV Charging Stations</span>
+        </div>
+    </nav>
+
+    <div class="container py-4 flex">
+        <aside class="w-1/4 pr-8">
+            <div class="bg-white rounded shadow p-6">
+
+                <div id="faq-search" style="font-size: 2rem;">
+                    <input type="text" id="search-bar" placeholder="Search for stations...">
+                    <button id="search-button">Search</button>
+                </div>
+
+                <h2 class="text-xl font-bold mb-4">Filter by:</h2>
+                <h3 class="text-lg font-medium mb-4">City</h3>
+                <ul class="">
+                    <li class="flex items-center">
+                        <input type="checkbox" id="dhaka" name="city" value="dhaka">
+                        <label for="dhaka" class="ml-2">Dhaka</label>
+                    </li>
+                    <li class="flex items-center">
+                        <input type="checkbox" id="chittagong" name="city" value="chittagong">
+                        <label for="chittagong" class="ml-2">Chittagong</label>
+                    </li>
+                    <li class="flex items-center">
+                        <input type="checkbox" id="sylhet" name="city" value="sylhet">
+                        <label for="sylhet" class="ml-2">Sylhet</label>
+                    </li>
+                    <li class="flex items-center">
+                        <input type="checkbox" id="comilla" name="city" value="comilla">
+                        <label for="comilla" class="ml-2">Comilla</label>
+                    </li>
+                </ul>
+
+                <h3 class="text-lg font-medium mb-4">Area</h3>
+                <ul class="">
+                    <li class="flex items-center">
+                        <input type="checkbox" id="dhanmondi" name="area" value="dhanmondi">
+                        <label for="dhanmondi" class="ml-2">Dhanmondi</label>
+                    </li>
+                    <li class="flex items-center">
+                        <input type="checkbox" id="bashundhara" name="area" value="bashundhara">
+                        <label for="bashundhara" class="ml-2">Bashundhara</label>
+                    </li>
+                    <li class="flex items-center">
+                        <input type="checkbox" id="mirpur" name="area" value="mirpur">
+                        <label for="mirpur" class="ml-2">Mirpur</label>
+                    </li>
+                    <li class="flex items-center">
+                        <input type="checkbox" id="uttara" name="area" value="uttara">
+                        <label for="uttara" class="ml-2">Uttara</label>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        
+        <main class="stations">
+            <h1 class="text-lg font-bold mb-6">Total 56 EV Charging Stations Found In Dhaka</h1>
+            <div class="grid">
+                <div class="gridcard">
+                    <img src="https://placehold.co/250x150" alt="Image1" class="mb-4">
+                    <h2 class="text-lg font-bold">Shimanto 1</h2>
+                    <p>Dhaka, dhanmondi - 4/a</p>
+                </div>
+                <div class="gridcard">
+                    <img src="https://placehold.co/250x150" alt="Image1" class="mb-4">
+                    <h2 class="text-lg font-bold">Shimanto 2</h2>
+                    <p>Dhaka, dhanmondi - 5/a</p>
+                </div>
+                <div class="gridcard">
+                    <img src="https://placehold.co/250x150" alt="Image1" class="mb-4">
+                    <h2 class="text-lg font-bold">Shimanto 3</h2>
+                    <p>Dhaka, dhanmondi - 15/a</p>
+                </div>
+                <div class="gridcard">
+                    <img src="https://placehold.co/250x150" alt="Image1" class="mb-4">
+                    <h2 class="text-lg font-bold">Shimanto 1</h2>
+                    <p>Dhaka, dhanmondi - 4/a</p>
+                </div>
+                <div class="gridcard">
+                    <img src="https://placehold.co/250x150" alt="Image1" class="mb-4">
+                    <h2 class="text-lg font-bold">Shimanto 2</h2>
+                    <p>Dhaka, dhanmondi - 5/a</p>
+                </div>
+                <div class="gridcard">
+                    <img src="https://placehold.co/250x150" alt="Image1" class="mb-4">
+                    <h2 class="text-lg font-bold">Shimanto 3</h2>
+                    <p>Dhaka, dhanmondi - 15/a</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
