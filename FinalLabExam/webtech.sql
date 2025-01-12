@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2025 at 08:31 AM
+-- Generation Time: Jan 12, 2025 at 11:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -39,10 +39,9 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`employee_name`, `contact_no`, `username`, `password`) VALUES
-('abir', 1813482058, 'abir22', 'abir11'),
-('bokhtiar', 0, '', '1234'),
-('', 0, 'bokhtiar2', '1234'),
-('abir21', 171147302, 'bokhtiar2', '1234');
+('brother', 1111111111, 'bro', 'bro1'),
+('abir', 1813482058, 'abir11', '1234'),
+('abirchanged', 1711473902, 'abirw', '12345');
 
 -- --------------------------------------------------------
 
