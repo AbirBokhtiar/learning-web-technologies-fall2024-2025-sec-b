@@ -11,10 +11,10 @@
         <h1 align="center">User list</h1>
         <table border=1 cellspacing="0" align="center" width="50%">
             <tr align="center">
-                <th>Name</th>
+                <th>Employee Name</th>
+                <th>Username</th>
                 <th>Password</th>
-                <th>Email</th>
-                <th>Age</th>
+                <th>Contact NO.</th>
                 <th colspan="2">Action</th>
                 
             </tr>
@@ -25,15 +25,15 @@
                 // }
             ?>
             <tr align="center">
-                <td><?php echo $row['name']; ?></td>
+                <td><?php echo $row['employee_name']; ?></td>
+                <td><?php echo $row['username']; ?></td>
                 <td><?php echo $row['password']; ?></td>
-                <td><?php echo $row['email']; ?></td>
-                <td><?php echo $row['age']; ?></td>
+                <td><?php echo $row['contact_no']; ?></td>
                 <td>
-                    <a href="edit_user.php?name=<?php echo $row['name']?>"> EDIT </a> 
+                    <a href="edit_user.php?name=<?php echo $row['username']; ?>"> EDIT </a> 
                 </td>
                 <td>
-                    delete
+                    <a href="delete_user.php?name=<?php echo $row['username']; ?>"> DELETE </a>
                 </td>
                 <?php } ?>
             </tr>

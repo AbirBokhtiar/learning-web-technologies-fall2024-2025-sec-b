@@ -17,7 +17,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] !== true) {
     </head>
     <body>
         <a href="edit_user.php?name=<?php echo $_SESSION['username']; ?>">edit user</a>
-        <a href="delete_user.php">delete user</a>
+        <a href="delete_user.php?name=<?php echo $_SESSION['username']; ?>">delete user</a>
        <a href="show_all_user.php">show all user</a>
        <a href="signup.html">add user</a>
     </body>

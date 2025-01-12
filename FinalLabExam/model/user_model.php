@@ -26,17 +26,31 @@ function login($username, $password){
     }
 }
 
-function update_user($original_name, $new_username, $new_password, $new_email, $new_emp_name, $new_contact) {
+function update_user($original_name, $new_username, $new_password, $new_emp_name, $new_contact) {
     $conn = get_connection();
-
-    $sql = "update employees set name=?, password=?, email=?, emp_name=?, contact=? WHERE name=?";
+    $sql = "UPDATE employees SET username=?, password=?, employee_name=?, contact_no=? WHERE username=?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ssssss", $new_username, $new_password, $new_email, $new_emp_name, $new_contact, $original_name);
-
+    if ($stmt === false) {
+        die("Error preparing statement: " . mysqli_error($conn));
+    }
+    mysqli_stmt_bind_param($stmt, "sssss", $new_username, $new_password, $new_emp_name, $new_contact, $original_name);
     $result = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
+    return $result;
+}
 
+function delete_user($username) {
+    $conn = get_connection();
+    $sql = "DELETE FROM employees WHERE username = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    if ($stmt === false) {
+        die("Error preparing statement: " . mysqli_error($conn));
+    }
+    mysqli_stmt_bind_param($stmt, "s", $username);
+    $result = mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
     return $result;
 }
 
@@ -54,7 +68,7 @@ function show_users(){
 function user_info($name) {
     $conn = get_connection();
 
-    $sql = "select * from employees where name = ?";
+    $sql = "select * from employees where username = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "s", $name);
     mysqli_stmt_execute($stmt);
