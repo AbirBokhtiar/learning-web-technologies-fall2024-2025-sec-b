@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <title>JS Example</title>
+</head>
+<body>
+        <h1 id="head">JS Example</h1>
+
+        <form >
+            <input type="text" id='name' name="" value="" onblur="f3()"/> 
+            <input type="button" id='btn' name="" value="CLICK" onclick="f2()"/> 
+            <p id="msg"></p>
+        </form>
+        <script>
+            //name = 'alamin';
+            //var name = 'alamin';
+            let name = 'alamin';
+            let std = [1, 'alamin', 3.5, 'alamin@aiub.edu'];
+
+            function sum(a, b){
+                return a+b;
+            }
+
+            //let f1 = (a,b)=>a+b;
+            //f1();
+            // for(let i=0; i<10;i++){
+            // }
+
+            // if(){
+
+            // }else{
+
+            // }
+            //console.log(sum(10, 10))
+            //alert("test");
+
+            //document.getElementsByTagName('h1')[0].innerHTML = "test";
+            //document.getElementById('head').innerHTML = "test";
+
+            function f1(){
+                document.getElementById('head').innerHTML = "test";    
+            }
+            //f1();
+
+            function f2(){
+                let name = document.getElementById('name').value;
+                document.getElementById('head').innerHTML = name;
+            }
+            function f3(){
+                let name = document.getElementById('name').value;
+                if(name == ""){
+                    document.getElementById('msg').innerHTML = "Please type your name!";
+                }else{
+                    document.getElementById('msg').innerHTML = "";
+                }
+                document.getElementById('msg').style.color = "red";
+
+            }
+
+            
+        </script>
+</body>
+</html>
